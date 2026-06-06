@@ -72,6 +72,7 @@ li {
     top: -8px;
     right: -8px;
     font-weight: 700;
+    display: none;
 }
 
 .g-one-half {
