@@ -298,15 +298,25 @@ document.querySelectorAll('input[name="payment"]').forEach(radio => {
 
 const cardNumberInput = document.getElementById('cardNumber');
 if (cardNumberInput) {
-    cardNumberInput.addEventListener('input', function () {
+    cardNumberInput.addEventListener('input', function (e) {
+        let position = this.selectionEnd;
+        let length = this.value.length;
         this.value = this.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
+        let newLength = this.value.length;
+        position = position + (newLength - length);
+        this.setSelectionRange(position, position);
     });
 }
 
 const cardExpiryInput = document.getElementById('cardExpiry');
 if (cardExpiryInput) {
-    cardExpiryInput.addEventListener('input', function () {
+    cardExpiryInput.addEventListener('input', function (e) {
+        let position = this.selectionEnd;
+        let length = this.value.length;
         this.value = this.value.replace(/\D/g, '').replace(/(\d{2})(\d)/, '$1 / $2');
+        let newLength = this.value.length;
+        position = position + (newLength - length);
+        this.setSelectionRange(position, position);
     });
 }
 
