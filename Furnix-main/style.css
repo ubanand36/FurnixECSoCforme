@@ -2001,3 +2001,70 @@ body {
 #topBtn:hover {
   background-color: gray;
 }
+/* ── Hero Section Animations (Issue #48) ── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Hero heading */
+.hero-content h1 {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+  animation-delay: 0.1s;
+}
+
+/* Hero subtext */
+.hero-content .big-para {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+  animation-delay: 0.35s;
+}
+
+/* Hero CTA button */
+.hero-content .btn {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+  animation-delay: 0.55s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-content .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero image slide in + float */
+.hero-image {
+  opacity: 0;
+  animation: fadeSlideLeft 0.9s ease forwards, floatImage 4s ease-in-out 1s infinite;
+  animation-delay: 0.2s, 1s;
+}
+
+/* ── Hero Animations Fix (Issue #48) ── */
+.heading {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.big-para {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+  animation-delay: 0.35s;
+}
